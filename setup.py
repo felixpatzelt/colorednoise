@@ -5,7 +5,7 @@ setup(
     version='1.0',
     description='Generate Gaussian (1/f)**beta noise (e.g. pink noise)',
     long_description="""
-        Generate power-law correlated noise with arbitrary exponents.
+        Generate gaussian distributed noise with a power law spectrum.
         Based on the algorithm in 
             Timmer, J. and Koenig, M.:
             On generating power law noise. 
@@ -17,7 +17,7 @@ setup(
       'Programming Language :: Python :: 2.7',
       'Topic :: Scientific/Engineering'
     ],
-    keywords='1/f flicker power-law colored noise generator',
+    keywords='1/f flicker power-law correlated colored noise generator',
     url='http://github.com/felixpatzelt/colorednoise',
     author='Felix Patzelt',
     author_email='felix@neuro.uni-bremen.de',
@@ -28,5 +28,5 @@ setup(
     ],
     include_package_data=True,
     zip_safe=False,
-    test_suite="tests"
+    test_suite='tests',
 )
