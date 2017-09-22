@@ -12,7 +12,7 @@ setup(
             Astron. Astrophys. 300, 707-710 (1995)
     """,
     classifiers=[
-      'Development Status :: 1 - Production',
+      'Development Status :: 5 - Production/Stable',
       'License :: OSI Approved :: MIT License',
       'Programming Language :: Python :: 2.7',
       'Topic :: Scientific/Engineering'
