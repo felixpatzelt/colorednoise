@@ -22,7 +22,7 @@ setup(
     author='Felix Patzelt',
     author_email='felix@neuro.uni-bremen.de',
     license='MIT',
-    packages=['colorednoise'],
+    py_modules=['colorednoise'],
     install_requires=[
         'numpy',
     ],
