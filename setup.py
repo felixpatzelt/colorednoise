@@ -2,10 +2,10 @@ from setuptools import setup
 
 setup(
     name='colorednoise',
-    version='1.0',
+    version='1.0-rc.1,
     description='Generate Gaussian (1/f)**beta noise (e.g. pink noise)',
     long_description="""
-        Generate gaussian distributed noise with a power law spectrum.
+        Generate Gaussian distributed noise with a power law spectrum.
         Based on the algorithm in 
             Timmer, J. and Koenig, M.:
             On generating power law noise. 

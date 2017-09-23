@@ -17,7 +17,7 @@ def powerlaw_psd_gaussian(exponent, samples, fmin=0):
     Parameters:
     -----------
     
-    exponent: float
+    exponent : float
         The power-spectrum of the generated noise is proportional to
         
         S(f) = (1 / f)**beta
@@ -31,17 +31,23 @@ def powerlaw_psd_gaussian(exponent, samples, fmin=0):
     samples : int
         number of samples to generate
     
-    fmin : float
+    fmin : float, optional
         Low-frequency cutoff.
         Default: 0 corresponds to original paper. It is not actually
         zero, but 1/samples.
+        
+    Returns
+    -------
+    out : array
+        The samples
+
 
     Examples:
     ---------
 
     # generate 1/f noise == pink noise == flicker noise
-    >>> from colored_noise import powerlaw_psd_gaussian
-    >>> y = powerlaw_psd_gaussian(1, 1000)
+    >>> import colorednoise as cn
+    >>> y = cn.powerlaw_psd_gaussian(1, 5)
     """
     
     # frequencies (we asume a sample rate of one)
