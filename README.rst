@@ -1,12 +1,15 @@
 colorednoise.py
 ===============
 
-Generate gaussian distributed noise with a power-law spectrum with arbitrary 
-exponents. An exponent of two corresponds to brownian noise. Smaller exponents 
+Generate Gaussian distributed noise with a power-law spectrum with arbitrary 
+exponents. 
+
+An exponent of two corresponds to brownian noise. Smaller exponents 
 yield long-range correlations, i.e. pink noise for an exponent of 1 (also 
 called 1/f noise or flicker noise).
 
-Based on the algorithm in 
+Based on the algorithm in:
+	
     Timmer, J. and Koenig, M.:
     On generating power law noise. 
     Astron. Astrophys. 300, 707-710 (1995)
@@ -19,14 +22,15 @@ Installation
 ------------
 
 ::
-	pip install .
+
+	pip install colorednoise
 	
 	
 Dependencies
 ------------
 
-	python 2.7
-	numpy
+	- python 2.7
+	- numpy
 	
 
 Example
