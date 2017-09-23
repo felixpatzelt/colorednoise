@@ -17,12 +17,14 @@ Further reading:
 
 Installation
 ------------
+
 ::
 	pip install .
 	
 	
 Dependencies
 ------------
+
 	python 2.7
 	numpy
 	
