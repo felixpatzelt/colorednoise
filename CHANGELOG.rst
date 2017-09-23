@@ -4,7 +4,7 @@ Changelog
 
 :Version: 1.0-rc.2 of 2017/09/23
 
-Refactoring: moved powerlaw_psd_gaussian into the present module to 
+Refactoring: moved powerlaw_psd_gaussian into the present pure python module to 
 release it to the public in pip-installable form.
 
 

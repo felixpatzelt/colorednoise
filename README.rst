@@ -1,7 +1,7 @@
 colorednoise.py
 ===============
 
-Generate Gaussian distributed noise with a power-law spectrum with arbitrary 
+Generate Gaussian distributed noise with a power law spectrum with arbitrary 
 exponents. 
 
 An exponent of two corresponds to brownian noise. Smaller exponents 
