@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='colorednoise',
-    version='1.0-rc.1,
+    version='1.0-rc.1',
     description='Generate Gaussian (1/f)**beta noise (e.g. pink noise)',
     long_description="""
         Generate Gaussian distributed noise with a power law spectrum.
