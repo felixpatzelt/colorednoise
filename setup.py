@@ -21,7 +21,7 @@ setup(
     url='http://github.com/felixpatzelt/colorednoise',
     download_url=(
       'https://github.com/felixpatzelt/colorednoise/archive/1.0.0-rc.1.tar.gz'
-    )
+    ),
     author='Felix Patzelt',
     author_email='felix@neuro.uni-bremen.de',
     license='MIT',
