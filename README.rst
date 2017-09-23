@@ -21,10 +21,11 @@ Further reading:
 Installation
 ------------
 
-::
+Download or clone the package. In the main directory execute::
 
-	pip install colorednoise
+	pip install .
 	
+pyPI submission is in progress.
 	
 Dependencies
 ------------
