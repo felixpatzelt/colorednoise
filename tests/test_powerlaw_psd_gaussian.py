@@ -9,5 +9,5 @@ class TestPowerlawPsdGaussian(unittest.TestCase):
         self.assertEqual(n.shape, (16,))
 
     def test_powerlaw_psd_gaussian_output_finite(self):
-        n = cn.powerlaw_psd_gaussian(1, 16)
+        n = cn.powerlaw_psd_gaussian(1, 16, fmin=0.1)
         self.assertTrue(np.isfinite(n).all())

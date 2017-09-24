@@ -39,7 +39,7 @@ def powerlaw_psd_gaussian(exponent, samples, fmin=0):
     Returns
     -------
     out : array
-        The samples
+        The samples.
 
 
     Examples:
