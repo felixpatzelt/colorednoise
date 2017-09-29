@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='colorednoise',
-    version='1.0-rc.1',
+    version='1.0.0',
     description='Generate Gaussian (1/f)**beta noise (e.g. pink noise)',
     long_description="""
         Generate Gaussian distributed noise with a power law spectrum.
@@ -13,15 +13,21 @@ setup(
     """,
     classifiers=[
       'Development Status :: 5 - Production/Stable',
+'Intended Audience :: Developers',
+'Intended Audience :: Education',
+'Intended Audience :: Science/Research',
       'License :: OSI Approved :: MIT License',
-      'Programming Language :: Python :: 2 :: Only',
+      'Programming Language :: Python :: 2',
       'Programming Language :: Python :: 2.7',
+      'Programming Language :: Python :: 3',
+      'Programming Language :: Python :: 3.6',
       'Topic :: Scientific/Engineering'
-    ],
+'Topic :: Software Development :: Libraries'
+'Topic :: Software Development :: Libraries :: Python Modules'    ],
     keywords='1/f flicker power-law correlated colored noise generator',
     url='http://github.com/felixpatzelt/colorednoise',
     download_url=(
-      'https://github.com/felixpatzelt/colorednoise/archive/1.0.0-rc.1.tar.gz'
+      'https://github.com/felixpatzelt/colorednoise/archive/1.0.0.tar.gz'
     ),
     author='Felix Patzelt',
     author_email='felix@neuro.uni-bremen.de',

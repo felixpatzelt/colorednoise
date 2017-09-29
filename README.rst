@@ -27,9 +27,11 @@ Installation
 Dependencies
 ------------
 
-	- python 2.7
-	- numpy
+	- Python >= 2.7 or >= 3.6
+	- NumPy
 	
+Other Python versions were not tested, but are likely to work.
+
 
 Example
 -------
