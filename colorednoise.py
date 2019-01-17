@@ -1,6 +1,6 @@
 """Generate colored noise."""
 
-from numpy import concatenate
+from numpy import concatenate, sqrt
 from numpy.fft import ifft, fftfreq
 from numpy.random import normal
 
@@ -96,6 +96,6 @@ def powerlaw_psd_gaussian(exponent, size, fmin=0):
                     axis=-1)
 
     # time series
-    y = ifft(s, axis=-1).real
+    y = ifft(s, axis=-1).real * size[-1]
 
-    return y / y.std(axis=-1)[...,None]
+    return y / sqrt((s_scale**2).sum())
