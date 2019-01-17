@@ -1,7 +1,7 @@
 """Generate colored noise."""
 
 from numpy import concatenate, sqrt
-from numpy.fft import ifft, fftfreq
+from numpy.fft import irfft, fftfreq
 from numpy.random import normal
 
 
@@ -86,16 +86,17 @@ def powerlaw_psd_gaussian(exponent, size, fmin=0):
     # scale random power + phase
     sr = s_scale * normal(size=size)
     si = s_scale * normal(size=size)
-    if not (samples % 2): si[0] = si[0].real
 
+    # If the signal length is even, this corresponds to frequency
+    # 0.5, so the coefficient must be real.
+    if not (samples % 2): si[0] = 0
+
+    # Regardless of signal length, the DC component must be real.
+    si[-1] = 0
+
+    # Use inverse real fft to automatically assume Hermitian
+    # spectrum rather than constructing it ourselves.
     s = sr + 1J * si
-    # this is complicated... because for odd sample numbers,
-    # there is one less positive freq than for even sample numbers
-    s = concatenate((s[...,1-(samples % 2):][...,::-1],
-                     s[...,:-1].conj()),
-                    axis=-1)
+    y = irfft(s[::-1], n=samples, axis=-1)
 
-    # time series
-    y = ifft(s, axis=-1).real * size[-1]
-
-    return y / sqrt((s_scale**2).sum())
+    return y * size[-1] / sqrt((s_scale**2).sum())
