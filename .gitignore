@@ -1,6 +1,9 @@
 # Compiled python modules
 *.pyc
 
+# Jupyter autosave
+.ipynb_checkpoints
+
 # Setuptools distribution folder
 /dist/
 
