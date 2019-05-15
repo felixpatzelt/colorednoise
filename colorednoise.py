@@ -3,6 +3,7 @@
 from numpy import sqrt, newaxis
 from numpy.fft import irfft, rfftfreq
 from numpy.random import normal
+from numpy import sum as npsum
 
 
 def powerlaw_psd_gaussian(exponent, size, fmin=0):
@@ -69,7 +70,7 @@ def powerlaw_psd_gaussian(exponent, size, fmin=0):
     # Build scaling factors for all frequencies
     s_scale = f
     fmin = max(fmin, 1./samples) # Low frequency cutoff
-    ix   = sum(s_scale < fmin)   # Index of the cutoff
+    ix   = npsum(s_scale < fmin)   # Index of the cutoff
     if ix and ix < len(s_scale):
         s_scale[:ix] = s_scale[ix]
     s_scale = s_scale**(-exponent/2.)
@@ -77,7 +78,7 @@ def powerlaw_psd_gaussian(exponent, size, fmin=0):
     # Calculate theoretical output standard deviation from scaling
     w      = s_scale[1:].copy()
     w[-1] *= (1 + (samples % 2)) / 2. # correct f = +-0.5
-    sigma = 2 * sqrt(sum(w**2)) / samples
+    sigma = 2 * sqrt(npsum(w**2)) / samples
     
     # Adjust size to generate one Fourier component per frequency
     size[-1] = len(f)
