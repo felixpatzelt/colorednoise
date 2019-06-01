@@ -1,7 +1,11 @@
 Changelog
 =========
 
-:Version: 1.1 of 2018-02-08
+:Version: 1.1.1 of 2019-02-08
+
+Use numpy's sum instead of python's (thank's to RuABraun).
+
+:Version: 1.1 of 2019-02-08
 
 Allow for generation of arrays of time series thanks to contributions from 
 Alex Spaeth. The second positional argument "samples" was renamed to "size" to 
