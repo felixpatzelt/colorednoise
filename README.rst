@@ -51,3 +51,24 @@ Example
 	#plt.grid(True)
 	#plt.show()
 	
+	
+.. code:: python
+    # generate several time series of independent indentically distributed variables 
+    # repeat the simulation of each variable multiple times
+	import colorednoise as cn
+    n_repeats   = 10   # repeat simulatons
+    n_variables = 5    # independent variables in each simulation
+    timesteps   = 1000 # number of timesteps for each variable
+    y = cn.powerlaw_psd_gaussian(1, (n_repeats, n_variables, timesteps))
+    
+    # the expected variance of for each variable is 1, but each realisation is different
+    print(y.std(axis=-1))
+    
+.. code:: python
+    # generate a broken power law spectrum: white below a frequency of 
+	import colorednoise as cn
+    y = cn.powerlaw_psd_gaussian(1, 10**5, fmin=.05)
+    s, f = mlab.psd(y, NFFT=2**9)
+    #plt.loglog(f,s)
+    #plt.grid(True)
+    #plt.show()
