@@ -33,8 +33,8 @@ Dependencies
 Other Python versions were not tested, but are likely to work.
 
 
-Example
--------
+Examples
+--------
 
 .. code:: python
 
