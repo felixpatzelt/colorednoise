@@ -37,8 +37,15 @@ def powerlaw_psd_gaussian(exponent, size, fmin=0):
 
     fmin : float, optional
         Low-frequency cutoff.
-        Default: 0 corresponds to original paper. It is not actually
-        zero, but 1/samples.
+        Default: 0 corresponds to original paper. 
+        
+        The power-spectrum below fmin is flat. fmin is defined relative
+        to a unit sampling rate (see numpy's rfftfreq). For convenience,
+        the passed value is mapped to max(fmin, 1/samples) internally
+        since 1/samples is the lowest possible finite frequency in the
+        sample. The largest possible value is fmin = 0.5, the Nyquist
+        frequency. The output for this value is white noise.
+
 
     Returns
     -------
@@ -67,9 +74,14 @@ def powerlaw_psd_gaussian(exponent, size, fmin=0):
     # Use fft functions for real output (-> hermitian spectrum)
     f = rfftfreq(samples)
     
+    # Validate / normalise fmin
+    if 0 <= fmin <= 0.5:
+        fmin = max(fmin, 1./samples) # Low frequency cutoff
+    else:
+        raise ValueError("fmin must be chosen between 0 and 0.5.")
+    
     # Build scaling factors for all frequencies
-    s_scale = f
-    fmin = max(fmin, 1./samples) # Low frequency cutoff
+    s_scale = f    
     ix   = npsum(s_scale < fmin)   # Index of the cutoff
     if ix and ix < len(s_scale):
         s_scale[:ix] = s_scale[ix]
