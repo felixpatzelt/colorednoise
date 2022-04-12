@@ -37,7 +37,7 @@ setup(
     license='MIT',
     py_modules=['colorednoise'],
     install_requires=[
-        'numpy',
+        'numpy>=1.17.0',
     ],
     python_requires='>=3',
     include_package_data=True,
