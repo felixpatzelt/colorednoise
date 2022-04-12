@@ -23,14 +23,15 @@ Installation
 
 	pip install colorednoise
 	
-		
+	
 Dependencies
 ------------
 
-	- Python >= 2.7 or >= 3.6
-	- NumPy
+	- Python >= 3.6.15
+	- NumPy >= 1.19.5
 	
-Other Python versions were not tested, but are likely to work.
+Older Python 3 and Numpy versions were not tested, but are likely to work.
+For Python 2 please use colorednoise version 1.x.
 
 
 Examples
