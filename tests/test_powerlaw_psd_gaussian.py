@@ -56,13 +56,26 @@ class TestPowerlawPsdGaussian(unittest.TestCase):
         n = 5
         seed = 1
 
-        good_random_states = [np.random.default_rng(seed), np.random.RandomState(seed), int(seed), np.int32(1), True]
+        good_random_states = [
+        	np.random.default_rng(seed), 
+        	np.random.RandomState(seed), 
+        	int(seed), 
+        	np.int32(1),
+        	True, 
+        	None
+        ]
         for random_state in good_random_states:
             cn.powerlaw_psd_gaussian(exp, n, random_state=random_state)
 
         bad_random_states = ["1", 0.15, [1]]
         for random_state in bad_random_states:
-            self.assertRaises(ValueError, cn.powerlaw_psd_gaussian, exp, n, random_state=random_state)
+            self.assertRaises(
+            	ValueError, 
+            	cn.powerlaw_psd_gaussian, 
+            	exp, 
+            	n, 
+            	random_state=random_state
+            )
 
 
     def test_random_state_reproducibility(self):

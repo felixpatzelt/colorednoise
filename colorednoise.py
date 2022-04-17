@@ -2,7 +2,7 @@
 
 from numpy import sqrt, newaxis, integer
 from numpy.fft import irfft, rfftfreq
-from numpy.random import normal, default_rng, Generator, RandomState
+from numpy.random import default_rng, Generator, RandomState
 from numpy import sum as npsum
 
 
@@ -46,11 +46,12 @@ def powerlaw_psd_gaussian(exponent, size, fmin=0, random_state=None):
         sample. The largest possible value is fmin = 0.5, the Nyquist
         frequency. The output for this value is white noise.
 
-    random_state : int, numpy.integer, numpy.random.Generator, numpy.random.RandomState, optional
-        If it is a integer compatible value, it is used as a seed for np.random.default_rng.
-        If np.random.RandomState or np.random.Generator, it is used to generate random numbers.
-        If None, the global functions like np.random.normal are used for random sequence generation.
-        Default is None
+    random_state :	int, numpy.integer, numpy.random.Generator, numpy.random.RandomState, 
+    				optional
+		Optionally sets the state of NumPy's underlying random number generator.
+		Integer-compatible values or None are passed to np.random.default_rng.
+		np.random.RandomState or np.random.Generator are used directly.
+		Default: None.
 
     Returns
     -------
@@ -130,13 +131,14 @@ def powerlaw_psd_gaussian(exponent, size, fmin=0, random_state=None):
 
 def _get_normal_distribution(random_state):
     normal_dist = None
-    if isinstance(random_state, (integer, int)):
+    if isinstance(random_state, (integer, int)) or random_state is None:
         random_state = default_rng(random_state)
         normal_dist = random_state.normal
     elif isinstance(random_state, (Generator, RandomState)):
         normal_dist = random_state.normal
-    elif random_state is None:
-        normal_dist = normal
     else:
-        raise ValueError("random_state must be one of integer, numpy.random.Generator, numpy.random.Randomstate")
+        raise ValueError(
+        	"random_state must be one of integer, numpy.random.Generator, "
+        	"numpy.random.Randomstate"
+        )
     return normal_dist
