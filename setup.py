@@ -4,8 +4,7 @@ setup(
     name='colorednoise',
     version='2.0.0',
     description='Generate Gaussian (1/f)**beta noise (e.g. pink noise)',
-    long_description="""
-        Generate Gaussian distributed noise with a power law spectrum.
+    long_description="""Generate Gaussian distributed noise with a power law spectrum.
         Based on the algorithm in 
             Timmer, J. and Koenig, M.:
             On generating power law noise. 
