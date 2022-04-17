@@ -1,6 +1,17 @@
 Changelog
 =========
 
+:Version: 2.0.0 of 2022-04-16
+
+Allow for control over random number generator state by adding optional random_state
+argument thanks to contributions from i-aki-y.
+Drop Python 2.7 support to use of NumPy's recommended default_rng constructor.
+
+:Version: 1.2.0 of 2022-03-13
+
+Improve doc strings based on user questions.
+Check that fmin parameter is in the right range.
+
 :Version: 1.1.1 of 2019-02-08
 
 Use numpy's sum instead of python's (thank's to RuABraun).

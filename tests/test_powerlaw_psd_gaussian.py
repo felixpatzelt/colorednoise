@@ -50,3 +50,44 @@ class TestPowerlawPsdGaussian(unittest.TestCase):
         
             slope_in = (exponent + fit[0] < 3 * np.sqrt(fcov[0,0])).mean()
             self.assertTrue(slope_in > 0.95)
+
+    def test_random_state_type(self):
+        exp = 1
+        n = 5
+        seed = 1
+
+        good_random_states = [
+        	np.random.default_rng(seed), 
+        	np.random.RandomState(seed), 
+        	int(seed), 
+        	np.int32(1),
+        	True, 
+        	None
+        ]
+        for random_state in good_random_states:
+            cn.powerlaw_psd_gaussian(exp, n, random_state=random_state)
+
+        bad_random_states = ["1", 0.15, [1]]
+        for random_state in bad_random_states:
+            self.assertRaises(
+            	ValueError, 
+            	cn.powerlaw_psd_gaussian, 
+            	exp, 
+            	n, 
+            	random_state=random_state
+            )
+
+
+    def test_random_state_reproducibility(self):
+        exp = 1
+        n = 5
+        seed = 1
+
+        rs1 = np.random.default_rng(seed)
+        rs2 = np.random.default_rng(seed)
+
+        y1 = cn.powerlaw_psd_gaussian(exp, n, random_state=rs1)
+        np.random.seed(123)
+        y2 = cn.powerlaw_psd_gaussian(exp, n, random_state=rs2)
+
+        np.testing.assert_array_equal(y1, y2)
