@@ -28,9 +28,9 @@ Dependencies
 ------------
 
 	- Python >= 3.6.15
-	- NumPy >= 1.19.5
+	- NumPy >= 1.17.0
 	
-Older Python 3 and Numpy versions were not tested, but are likely to work.
+Older Python 3 versions were not tested, but are likely to work.
 For Python 2 please use colorednoise version 1.x.
 
 
