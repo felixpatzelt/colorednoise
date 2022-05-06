@@ -115,10 +115,13 @@ def powerlaw_psd_gaussian(exponent, size, fmin=0, random_state=None):
     
     # If the signal length is even, frequencies +/- 0.5 are equal
     # so the coefficient must be real.
-    if not (samples % 2): si[...,-1] = 0
+    if not (samples % 2):
+        si[..., -1] = 0
+        sr[..., -1] *= sqrt(2)    # Fix magnitude
     
     # Regardless of signal length, the DC component must be real
-    si[...,0] = 0
+    si[..., 0] = 0
+    sr[..., 0] *= sqrt(2)    # Fix magnitude
     
     # Combine power + corrected phase to Fourier components
     s  = sr + 1J * si
