@@ -46,12 +46,12 @@ def powerlaw_psd_gaussian(exponent, size, fmin=0, random_state=None):
         sample. The largest possible value is fmin = 0.5, the Nyquist
         frequency. The output for this value is white noise.
 
-    random_state :	int, numpy.integer, numpy.random.Generator, numpy.random.RandomState, 
-    				optional
-		Optionally sets the state of NumPy's underlying random number generator.
-		Integer-compatible values or None are passed to np.random.default_rng.
-		np.random.RandomState or np.random.Generator are used directly.
-		Default: None.
+    random_state :  int, numpy.integer, numpy.random.Generator, numpy.random.RandomState, 
+                    optional
+        Optionally sets the state of NumPy's underlying random number generator.
+        Integer-compatible values or None are passed to np.random.default_rng.
+        np.random.RandomState or np.random.Generator are used directly.
+        Default: None.
 
     Returns
     -------
@@ -141,7 +141,7 @@ def _get_normal_distribution(random_state):
         normal_dist = random_state.normal
     else:
         raise ValueError(
-        	"random_state must be one of integer, numpy.random.Generator, "
-        	"numpy.random.Randomstate"
+            "random_state must be one of integer, numpy.random.Generator, "
+            "numpy.random.Randomstate"
         )
     return normal_dist
