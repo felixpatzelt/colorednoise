@@ -1,6 +1,12 @@
 Changelog
 =========
 
+:Version: 2.1.0 of 2022-04-16
+Fix by @onnoeberhard for too-small dc-component: When cumulating the generated noise,
+the displacement would grow too slowly in the long limit.
+Test that would have discovered the above issue.
+Other tests are now deterministic.
+
 :Version: 2.0.0 of 2022-04-16
 
 Allow for control over random number generator state by adding optional random_state
