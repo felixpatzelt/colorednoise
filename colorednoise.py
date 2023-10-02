@@ -6,7 +6,7 @@ from numpy.random import default_rng, Generator, RandomState
 from numpy import sum as npsum
 
 
-def powerlaw_psd_gaussian(exponent, size, fmin=0, random_state=None):
+def powerlaw_psd_gaussian(exponent, size, fmin: float = 0.0, random_state=None):
     """Gaussian (1/f)**beta noise.
 
     Based on the algorithm in:
