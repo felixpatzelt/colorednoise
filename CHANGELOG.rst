@@ -1,11 +1,16 @@
 Changelog
 =========
 
+:Version: 2.2.0 of 2023-10-08
+Added type annotations (thanks to @charlesincharge for the initiative on an initial PR).
+Adapted type checking of size parameter for compatibility with mypy.  
+
 :Version: 2.1.0 of 2022-04-16
 Fix by @onnoeberhard for too-small dc-component: When cumulating the generated noise,
 the displacement would grow too slowly in the long limit.
 Test that would have discovered the above issue.
 Other tests are now deterministic.
+
 
 :Version: 2.0.0 of 2022-04-16
 
@@ -18,9 +23,11 @@ Drop Python 2.7 support to use of NumPy's recommended default_rng constructor.
 Improve doc strings based on user questions.
 Check that fmin parameter is in the right range.
 
+
 :Version: 1.1.1 of 2019-02-08
 
-Use numpy's sum instead of python's (thank's to RuABraun).
+Use numpy's sum instead of python's (thanks to RuABraun).
+
 
 :Version: 1.1 of 2019-02-08
 

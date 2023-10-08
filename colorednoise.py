@@ -1,12 +1,18 @@
 """Generate colored noise."""
 
+from typing import Union, Iterable, Optional
 from numpy import sqrt, newaxis, integer
 from numpy.fft import irfft, rfftfreq
 from numpy.random import default_rng, Generator, RandomState
 from numpy import sum as npsum
 
 
-def powerlaw_psd_gaussian(exponent, size, fmin: float = 0.0, random_state=None):
+def powerlaw_psd_gaussian(
+        exponent: float, 
+        size: Union[int, Iterable[int]], 
+        fmin: float = 0.0, 
+        random_state: Optional[Union[int, Generator, RandomState]] = None
+    ):
     """Gaussian (1/f)**beta noise.
 
     Based on the algorithm in:
@@ -68,17 +74,19 @@ def powerlaw_psd_gaussian(exponent, size, fmin: float = 0.0, random_state=None):
     """
     
     # Make sure size is a list so we can iterate it and assign to it.
-    try:
-        size = list(size)
-    except TypeError:
+    if isinstance(size, (integer, int)):
         size = [size]
+    elif isinstance(size, Iterable):
+        size = list(size)
+    else:
+        raise ValueError("Size must be of type int or Iterable[int]")
     
     # The number of samples in each time series
     samples = size[-1]
     
     # Calculate Frequencies (we asume a sample rate of one)
     # Use fft functions for real output (-> hermitian spectrum)
-    f = rfftfreq(samples)
+    f = rfftfreq(samples) # type: ignore # mypy 1.5.1 has problems here 
     
     # Validate / normalise fmin
     if 0 <= fmin <= 0.5:
@@ -132,7 +140,7 @@ def powerlaw_psd_gaussian(exponent, size, fmin: float = 0.0, random_state=None):
     return y
 
 
-def _get_normal_distribution(random_state):
+def _get_normal_distribution(random_state: Optional[Union[int, Generator, RandomState]]):
     normal_dist = None
     if isinstance(random_state, (integer, int)) or random_state is None:
         random_state = default_rng(random_state)
